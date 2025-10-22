@@ -19,13 +19,13 @@
   ],
   "author": "SonarFit",
   "license": "MIT",
-  "homepage": "https://github.com/your-org/sonarfit-react-native",
+  "homepage": "https://github.com/sonarfit/sonarfit-react-native",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-org/sonarfit-react-native.git"
+    "url": "git+https://github.com/sonarfit/sonarfit-react-native.git"
   },
   "bugs": {
-    "url": "https://github.com/your-org/sonarfit-react-native/issues"
+    "url": "https://github.com/sonarfit/sonarfit-react-native/issues"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
