@@ -4,7 +4,7 @@ React Native integration for SonarFit SDK - AI-powered workout rep counting for 
 
 ## Features
 
-- AI-powered rep counting for squats, deadlifts, and bench press
+- AI-powered rep counting for Squats, Bench Press, and Deadlifts
 - Real-time workout tracking
 - Support for Apple Watch and AirPods motion sensors
 - Native iOS integration with React Native bridge
@@ -28,6 +28,28 @@ cd ios && pod install
 platform :ios, '17.0'
 ```
 
+3. Add required permissions to your `Info.plist`:
+```xml
+<key>NSMotionUsageDescription</key>
+<string>This app uses motion sensors to track your workout reps and provide real-time feedback</string>
+```
+
+4. Enable HealthKit capability:
+   - Select your iOS app target in Xcode
+   - Go to **Signing & Capabilities**
+   - Click **+ Capability**
+   - Add **HealthKit**
+   - Enable **Background Delivery** under HealthKit
+
+5. Add Background Modes to your `Info.plist`:
+```xml
+<key>UIBackgroundModes</key>
+<array>
+    <string>fetch</string>
+    <string>processing</string>
+</array>
+```
+
 ## Usage
 
 ### Initialize the SDK
@@ -45,7 +67,7 @@ useEffect(() => {
       console.error('Failed to initialize SonarFit SDK:', error);
     }
   };
-  
+
   initSDK();
 }, []);
 ```
@@ -57,18 +79,18 @@ import SonarFitSDK, { WorkoutConfig } from 'sonarfit-react-native';
 
 const startWorkout = async () => {
   const config: WorkoutConfig = {
-    workoutType: 'squat',  // 'squat' | 'deadlift' | 'benchpress'
+    workoutType: 'squat',      // 'squat' | 'deadlift' | 'benchpress'
     sets: 3,
     reps: 10,
-    restTime: 60,          // seconds
-    countdownDuration: 3,  // seconds
-    autoReLift: true,
-    deviceType: 'none',    // 'none' | 'watch' | 'airpods'
+    restTime: 60,              // seconds (default: 60)
+    countdownDuration: 3,      // seconds (default: 3)
+    autoReLift: true,          // default: true
+    deviceType: 'airpods',     // 'watch' | 'airpods'
   };
 
   try {
     const result = await SonarFitSDK.presentWorkout(config);
-    
+
     if (result.completed) {
       console.log(`Completed ${result.totalRepsCompleted}/${result.totalTargetReps} reps`);
       console.log(`Duration: ${result.totalDuration}s`);
@@ -111,7 +133,7 @@ interface WorkoutConfig {
   restTime?: number;           // default: 60
   countdownDuration?: number;  // default: 3
   autoReLift?: boolean;        // default: true
-  deviceType?: 'none' | 'watch' | 'airpods';  // default: 'none'
+  deviceType: 'watch' | 'airpods';
 }
 
 interface WorkoutResult {
@@ -138,7 +160,8 @@ interface WorkoutResult {
 
 - React Native >= 0.60
 - iOS >= 17.0
-- Xcode >= 15.0
+- Xcode >= 16.0
+- AirPods Pro/Max or Apple Watch (for motion tracking)
 
 ## Example
 
