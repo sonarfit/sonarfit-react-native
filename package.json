@@ -1,6 +1,6 @@
 {
   "name": "sonarfit-react-native",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Native integration for SonarFit SDK - AI-powered workout rep counting",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
