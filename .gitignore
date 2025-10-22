@@ -1,0 +1,47 @@
+# OSX
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# TypeScript
+*.tsbuildinfo
+lib/
+
+# iOS
+ios/build/
+ios/Pods/
+ios/.xcode.env.local
+*.xcworkspace/xcuserdata/
+*.xcworkspace/xcshareddata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/
+DerivedData/
+
+# Android
+android/build/
+android/.gradle/
+android/app/build/
+*.apk
+
+# Example app
+example/node_modules/
+example/ios/build/
+example/ios/Pods/
+example/android/build/
+example/android/.gradle/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# Misc
+.env
+.env.local

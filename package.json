@@ -1,0 +1,47 @@
+{
+  "name": "sonarfit-react-native",
+  "version": "1.0.0",
+  "description": "React Native integration for SonarFit SDK - AI-powered workout rep counting",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "react-native",
+    "fitness",
+    "workout",
+    "ai",
+    "motion-tracking",
+    "rep-counting",
+    "sonarfit"
+  ],
+  "author": "SonarFit",
+  "license": "MIT",
+  "homepage": "https://github.com/your-org/sonarfit-react-native",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/sonarfit-react-native.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/sonarfit-react-native/issues"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-native": ">=0.60.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-native": "^0.72.0",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "lib/",
+    "ios/",
+    "android/",
+    "sonarfit-react-native.podspec",
+    "README.md"
+  ],
+  "react-native": "lib/index.js"
+}

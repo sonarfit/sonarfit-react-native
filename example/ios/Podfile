@@ -1,0 +1,28 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+
+platform :ios, '17.0'
+prepare_react_native_project!
+
+target 'HelloWorld' do
+  config = use_native_modules!
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => true,
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
+
+  # SonarFit SDK XCFrameworks (local pods)
+  pod 'SonarFitCore-Vendored', :path => 'LocalPods/SonarFitCore-Vendored'
+  pod 'SonarFitConnectivity-Vendored', :path => 'LocalPods/SonarFitConnectivity-Vendored'
+  pod 'SonarFitUI-Vendored', :path => 'LocalPods/SonarFitUI-Vendored'
+  pod 'SonarFitKit-Vendored', :path => 'LocalPods/SonarFitKit-Vendored'
+
+  post_install do |installer|
+    react_native_post_install(
+      installer,
+      config[:reactNativePath],
+      :mac_catalyst_enabled => false
+    )
+  end
+end
