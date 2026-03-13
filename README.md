@@ -156,6 +156,32 @@ interface WorkoutResult {
 }
 ```
 
+## Debugging
+
+### SDK Logging
+
+The underlying iOS SDK supports multiple log levels for debugging. To enable logging, add this to your native iOS code (in `AppDelegate.swift` or similar):
+
+```swift
+import SonarFitKit
+
+// In application(_:didFinishLaunchingWithOptions:)
+#if DEBUG
+SonarFitSDK.logLevel = .debug  // See all logs during development
+#else
+SonarFitSDK.logLevel = .standard  // Only errors and warnings in production
+#endif
+```
+
+Available log levels:
+- `.none` - No logging
+- `.minimal` - Only critical errors
+- `.standard` - Errors and warnings (default)
+- `.verbose` - Errors, warnings, and info messages
+- `.debug` - All logs including motion processing and connectivity details
+
+**Note:** Logging is controlled at the native iOS SDK level and cannot be changed from React Native JavaScript code.
+
 ## Requirements
 
 - React Native >= 0.60
