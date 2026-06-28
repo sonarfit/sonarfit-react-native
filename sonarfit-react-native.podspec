@@ -17,7 +17,17 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency "React-Core"
-  s.dependency "SonarFitKit-Vendored"
+
+  # SonarFit SDK XCFrameworks are vendored directly in this package (shipped in
+  # the npm tarball under ios/). A plain `npm install` + `pod install` resolves
+  # and embeds them — no external/unpublished pod required. SonarFitKit is the
+  # umbrella; Core/Connectivity/UI are its iOS dependencies.
+  s.vendored_frameworks = [
+    "ios/SonarFitKit.xcframework",
+    "ios/SonarFitCore.xcframework",
+    "ios/SonarFitConnectivity.xcframework",
+    "ios/SonarFitUI.xcframework",
+  ]
 
   # Swift version
   s.swift_version = "5.9"
