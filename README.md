@@ -4,7 +4,7 @@ React Native integration for SonarFit SDK - automatic rep counting from motion s
 
 ## Features
 
-- Automatic rep counting from motion sensors — Squats & Deadlifts on AirPods; Squats, Deadlifts, Bench Press, Shoulder Press & Bicep Curls on Apple Watch
+- Automatic rep counting from motion sensors — Squats & Deadlifts on AirPods; Squats, Deadlifts, Bench Press, Shoulder Press, Bicep Curls & Bent-Over Rows on Apple Watch
 - Real-time workout tracking
 - Support for Apple Watch and AirPods motion sensors
 - Native iOS integration with React Native bridge
@@ -79,7 +79,7 @@ import SonarFitSDK, { WorkoutConfig } from 'sonarfit-react-native';
 
 const startWorkout = async () => {
   const config: WorkoutConfig = {
-    workoutType: 'squat',      // squat, deadlift (AirPods or Watch); benchpress, shoulder_press, bicep_curl (Apple Watch only)
+    workoutType: 'squat',      // squat, deadlift (AirPods or Watch); benchpress, shoulder_press, bicep_curl, bent_over_row (Apple Watch only)
     sets: 3,
     reps: 10,
     restTime: 60,              // seconds (default: 60)
@@ -127,7 +127,7 @@ Present the SonarFit workout UI.
 
 ```typescript
 interface WorkoutConfig {
-  workoutType: 'squat' | 'deadlift' | 'benchpress' | 'shoulder_press' | 'bicep_curl';
+  workoutType: 'squat' | 'deadlift' | 'benchpress' | 'shoulder_press' | 'bicep_curl' | 'bent_over_row';
   sets: number;
   reps: number;
   restTime?: number;           // default: 60

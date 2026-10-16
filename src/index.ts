@@ -2,7 +2,7 @@ import { NativeModules } from 'react-native';
 
 const { SonarFitSDKModule } = NativeModules;
 
-export type WorkoutType = 'squat' | 'deadlift' | 'benchpress' | 'shoulder_press' | 'bicep_curl';
+export type WorkoutType = 'squat' | 'deadlift' | 'benchpress' | 'shoulder_press' | 'bicep_curl' | 'bent_over_row';
 export type DeviceType = 'none' | 'watch' | 'airpods';
 
 export interface WorkoutConfig {

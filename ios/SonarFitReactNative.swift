@@ -100,6 +100,8 @@ class SonarFitSDKModule: NSObject {
             workoutType = .shoulderPress
         case "bicep_curl":
             workoutType = .bicepCurl
+        case "bent_over_row", "row":
+            workoutType = .row
         default:
             return nil
         }
