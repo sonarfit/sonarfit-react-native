@@ -102,6 +102,12 @@ class SonarFitSDKModule: NSObject {
             workoutType = .bicepCurl
         case "bent_over_row":
             workoutType = .row
+        case "lateral_raise":
+            workoutType = .lateralRaise
+        case "front_raise":
+            workoutType = .frontRaise
+        case "chest_fly":
+            workoutType = .chestFly
         default:
             return nil
         }
